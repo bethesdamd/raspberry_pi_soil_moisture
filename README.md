@@ -27,5 +27,9 @@ I had to do the following to get SPI initialized on my Pi:
 sudo vi /etc/modprobe.d/raspi-blacklist.conf and comment out the line with 'spi', e.g.  blacklist spi-bcm2835 (your number may vary if you have an older Pi like I do.)
 Also, add the following line to /boot/config.txt and reboot:  dtparam=spi=on
 (from the bottom of this post: https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=105360)
+If spi is loading properly you should see a line like this in the output of the command 'lsmod':
+spi_bcm2835             7948  0
+
+Good post on SPI and the ADC: http://scruss.com/blog/2013/02/02/simple-adc-with-the-raspberry-pi/
 
 
