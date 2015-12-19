@@ -1,6 +1,7 @@
 # Read soil moisture sensor and send data to a Google Spreadsheet 
 # Details:
-# This will read from an MCP3008 ADC chip using SPI protocol.  The ADC reads the analog volatge output of the Sparkfun soil moisture sensor (https://www.sparkfun.com/products/13322)
+# This will read from an MCP3008 ADC chip (https://www.adafruit.com/product/856) using SPI protocol.  The ADC reads the analog volatge output 
+# of the Sparkfun soil moisture sensor (https://www.sparkfun.com/products/13322)
 
 import secrets
 import urllib2
@@ -23,12 +24,11 @@ def readadc(adcnum):
  
 while True:
 	value = readadc(0)  # Assumes we are wired to ADC CH0 which is pin 1
-#	volts = (value * 3.3) / 1024
-#	temperature = volts / (10.0 / 1000)
-#	print ("%4d/1023 => %5.3f V => %4.1f °C" % (value, volts, temperature))
+	#volts = (value * 3.3) / 1024
+	#temperature = volts / (10.0 / 1000)
+	#print ("%4d/1023 => %5.3f V => %4.1f C" % (value, volts, temperature))
 	print(value)
 	time.sleep(3)
-
 
 # Do any needed numerical conversion of raw value
 
