@@ -1,1 +1,6 @@
-# raspberry_pi_soil_moisture
+# Measure soil moisture using a Raspberry Pi and a Sparkfun soil moisture sensore
+
+System will sample the sensor periodically and send the value to a Google Spreadsheet via IFTTT.com
+Will use MCP3008 ADC chip.
+
+
