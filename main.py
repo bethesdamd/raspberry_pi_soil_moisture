@@ -10,6 +10,13 @@ import json
 import spidev
 import time
 
+# Configuration to turn on soil sensor only when we need it to avoid oxidation
+# Do this by powering the sensor from a GPIO output pin
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+power_sensor = 18
+GPIO.setup(power_sensor, GPIO.OUT)
+
 # Read ADC - from http://scruss.com/blog/2013/02/02/simple-adc-with-the-raspberry-pi/
 spi = spidev.SpiDev()
 spi.open(0, 0)
@@ -23,12 +30,17 @@ def readadc(adcnum):
 	return adcout
  
 while True:
+	# Turn on power to sensor
+	GPIO.output(power_sensor, 1)
 	value = readadc(0)  # Assumes we are wired to ADC CH0 which is pin 1
 	#volts = (value * 3.3) / 1024
 	#temperature = volts / (10.0 / 1000)
 	#print ("%4d/1023 => %5.3f V => %4.1f C" % (value, volts, temperature))
 	print(value)
+	# Turn off power to sensor
+	GPIO.output(power_sensor, 0)
 	time.sleep(3)
+
 
 # Do any needed numerical conversion of raw value
 
