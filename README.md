@@ -1,5 +1,6 @@
-# CODE FORTHCOMING
 ## Measure soil moisture using a Raspberry Pi and a Sparkfun soil moisture sensor
+
+**(Caveat: code has not yet been tested with the hardware as I am coding while awaiting some parts)**
 
 System will sample the sensor periodically and send the value to a Google Spreadsheet via IFTTT.com.  
 Will use MCP3008 ADC chip.  This is not intended to be a full step by step tutorial, but rather
@@ -32,9 +33,11 @@ I had to do the following to get SPI initialized on my Pi:
 
 sudo vi /etc/modprobe.d/raspi-blacklist.conf 
 
-and comment out the line with 'spi', e.g.  
+and comment out the line with 'spi', e.g. make it:
 
 &#35;blacklist spi-bcm2835 (your number may vary if you have an older Pi like I do.)
+
+(Yes, it's odd to comment-out something to activate it.)
 
 Also, add the following line to /boot/config.txt and reboot:  dtparam=spi=on
 (from the bottom of this post: https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=105360)
