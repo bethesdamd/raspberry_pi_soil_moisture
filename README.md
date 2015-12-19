@@ -3,4 +3,4 @@
 System will sample the sensor periodically and send the value to a Google Spreadsheet via IFTTT.com
 Will use MCP3008 ADC chip.
 
-
+## IFTTT.com configuration
