@@ -1,3 +1,5 @@
+# Simple test of the Pi Cobbler cable.  Turn an LED on and then off.
+
 import RPi.GPIO as GPIO
 import time
 
