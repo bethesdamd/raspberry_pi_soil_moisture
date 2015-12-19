@@ -34,7 +34,7 @@ sudo vi /etc/modprobe.d/raspi-blacklist.conf
 
 and comment out the line with 'spi', e.g.  
 
-C&#35;blacklist spi-bcm2835 (your number may vary if you have an older Pi like I do.)
+&#35;blacklist spi-bcm2835 (your number may vary if you have an older Pi like I do.)
 
 Also, add the following line to /boot/config.txt and reboot:  dtparam=spi=on
 (from the bottom of this post: https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=105360)
